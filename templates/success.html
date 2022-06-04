@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        margin-top: 290px;
+        /* border: 3px solid green;  */
+        color: white;
+    }
+    
+    .center a {
+        background-color: black;
+        padding: 10px;
+        /* border: 2px solid rebeccapurple; */
+        
+    }
+    .link_btn{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 0.1px;
+        margin-top: 10px;
+        /* border: 3px solid green;  */
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+    }
+    .link_btn a{
+        text-decoration: none;
+        list-style: none;
+        color: rgb(0, 0, 0);
+        
+    }
+    
+</style>
+
+
+
+<div class="center">
+    <a type="text" class="">Successfully Sent Message !</a><br>
+</div>
+<div class="link_btn">
+
+    <a href="{% url 'contact' %}" type="text" class="">Go back</a>
+</div>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+
+
+{% endblock %}

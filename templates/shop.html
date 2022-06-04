@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+    
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .card button {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+    
+    .card button:hover {
+        opacity: 0.7;
+    }
+    
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 1200px;
+        margin-block: 2rem;
+        gap: 2rem;
+    }
+    
+    img {
+        max-width: 100%;
+        display: block;
+        object-fit: cover;
+    }
+    
+    .card {
+        display: flex;
+        flex-direction: column;
+        width: clamp(20rem, calc(20rem + 2vw), 22rem);
+        overflow: hidden;
+        box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+        border-radius: 1em;
+        background: #ECE9E6;
+        background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+        
+    }
+    
+    
+    
+    .card__body {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+    
+    .card__body h4 {
+        font-size: 1.5rem;
+        text-transform: capitalize;
+    }
+    
+    .card__header {
+        width: 100%;
+        max-height: 220px;
+    }
+    
+    .card__header img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        object-position: center;
+    }
+    </style>
+
+
+
+<h2 style="text-align:center">Shop</h2>
+<div class="container">
+    {% for products in product %}
+    <div class="card">
+        <div class="card__header">
+            <img src="{{products.PImage.url}}" alt="card__image" class="card__image" width="600">
+        </div>
+        <div class="card__body">
+            <!-- <span class="tag tag-blue">{{post.Created_at}}</span> -->
+            <h4 style="text-align:left;">{{products.Name | truncatechars:40}} <br><span style="color: red;" >Rs.{{products.Price}}</span></h4>
+        </div>
+        <p><button>Add to Cart</button></p>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+<!-- <div class="container">
+    {% for products in product %}
+    <div class="card">
+        <img src="{{products.PImage.url}}" alt="Denim Jeans" style="width:100%">
+        <h1>{{products.Name}}</h1>
+        <p class="price">Rs.{{products.Price}}</p>
+        <p><button>Add to Cart</button></p>
+    </div>
+    {% endfor %}
+</div><br><br><br> -->
+
+<!-- <style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+    }
+    
+    .price {
+        color: grey;
+        font-size: 22px;
+    }
+    
+    .card button {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+    
+    .card button:hover {
+        opacity: 0.7;
+    }
+</style> -->

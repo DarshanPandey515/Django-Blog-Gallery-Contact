@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Page content-->
+{% for detail in post %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Post content-->
+            <article>
+                <!-- Post header-->
+                <header class="mb-4">
+                    <!-- Post title-->
+                    <h1 class="fw-bolder mb-1">{{detail.Title}}</h1>
+                    <!-- Post meta content-->
+                    <div class="text-muted fst-italic mb-2">{{detail.Created_at}}</div>
+                    <!-- Post categories-->
+                </header>
+                <!-- Preview image figure-->
+                <figure class="mb-4"><img class="img-fluid rounded"
+                        src="{{detail.Header_Image.url}}" alt="..." /></figure>
+                <!-- Post content-->
+                <section class="mb-5">
+                    <p class="fs-5 mb-4">{{ detail.Content | safe }}</p>
+                </section>
+            </article>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<!-- <script src="js/scripts.js"></script> -->
+
+
+{% endblock %}
